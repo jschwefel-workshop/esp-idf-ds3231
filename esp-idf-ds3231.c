@@ -326,7 +326,7 @@ esp_err_t ds3231_time_time_t_set(rtc_handle_t* rtc_handle, time_t time) {
 }
 
 int ds3231_set_esp_with_rtc(rtc_handle_t* rtc_handle) {
-    struct timeval rtc_time = {.tv_sec = 0, .tv_usec = 0};
+    struct timeval rtc_time = {0};
     rtc_time.tv_sec = ds3231_time_unix_get(rtc_handle);
     return settimeofday(&rtc_time, NULL);
 }
